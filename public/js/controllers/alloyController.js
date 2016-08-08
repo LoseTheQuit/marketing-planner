@@ -84,7 +84,6 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
         })
 
-        $scope.deselect();
     }
 
     $scope.update = function () {
