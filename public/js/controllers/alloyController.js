@@ -23,6 +23,8 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
             $scope.todo = response;
 
         });
+
+        $scope.deselect();
     }
 
     $scope.refresh();
