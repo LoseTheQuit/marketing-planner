@@ -24,7 +24,7 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
         });
 
-        $scope.deselect();
+
     }
 
     $scope.refresh();
@@ -54,6 +54,8 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
             console.log("postHomeBrew SUCCESS");
             $scope.refresh();
         })
+
+        $scope.deselect();
 
     }
 
