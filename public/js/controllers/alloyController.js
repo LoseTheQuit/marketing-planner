@@ -6,6 +6,12 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
     console.log("INSIDE: alloy Controller");
 
+    $scope.deselect = function () {
+
+        $scope.event = "";
+
+    }
+
     $scope.refresh = function () {
 
         alloyService.getHomeBrew(function (response) {
@@ -75,6 +81,8 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
             $scope.refresh();
 
         })
+
+        $scope.deselect();
     }
 
     $scope.update = function () {
@@ -90,13 +98,11 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
             $scope.refresh();
 
         })
+
+        $scope.deselect();
     }
 
-    $scope.deselect = function () {
 
-        $scope.event = "";
-
-    }
 
     /*
     
