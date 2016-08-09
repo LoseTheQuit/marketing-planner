@@ -5,6 +5,23 @@ console.log("OUTSIDE: alloy Controller");
 app.controller('alloyController', function ($scope, $http, alloyService) {
 
     console.log("INSIDE: alloy Controller");
+    $scope.setOrder = function (order) {
+        $scope.order = order;
+        $scope.refresh();
+        console.log('IT IS ONNNN')
+    };
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 
     $scope.deselect = function () {
 

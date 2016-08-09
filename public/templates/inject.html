@@ -9,26 +9,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Date: </th>
-                <th>Day: </th>
-                <th>Month: </th>
-                <th>Event: </th>
-                <th>Action</th>
+
+                <th colspan="4">Action</th>
+                <th colspan="4">Action</th>
+
             </tr>
         </thead>
-        <tbody>
+        <thead>
             <tr>
-                <td>
-                    <input class="form-control" ng-model="event.date">
+                <td class="dropDownController">
+                    <!-- <input class="form-control" ng-model="event.date">-->
+                    <md-datepicker ng-model="event.date" md-svg-icon="md-form" md-placeholder="Enter date">asdasd</md-datepicker>
+
                 </td>
-                <td>
-                    <input class="form-control" ng-model="event.day">
-                </td>
-                <td>
-                    <input class="form-control" ng-model="event.month">
-                </td>
-                <td>
-                    <input class="form-control" ng-model="event.name">
+                <td colspan=3>
+
+                    <input class="form-control" placeholder="Event:" ng-model="event.name">
                 </td>
                 <td>
                     <button class="btn btn-primary" ng-click="add()">
@@ -40,7 +36,7 @@
                         Update
                     </button>
                 </td>
-                <!--
+                <!-- 
                 <td>
                     <button class="btn btn-info" ng-click="deselect()">
                         Clear
@@ -48,11 +44,69 @@
                 </td>
 -->
             </tr>
+        </thead>
 
-            <tr ng-repeat="event in todo.data">
-                <td>{{event.date}}</td>
-                <td>{{event.day}}</td>
-                <td>{{event.month}}</td>
+
+        <thead>
+            <tr>
+                <th>Date:
+                    <button class="btn btn-primary" ng-click="setOrder('date')">
+                        &and;
+                    </button>
+                    <button class="btn btn-primary" ng-click="setOrder('-date')">
+                        &or;
+                    </button>
+                </th>
+                <th>Day: </th>
+                <th>Month: </th>
+                <th>Event: </th>
+                <th colspan="2">Action:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!--
+            <tr>
+                <td>
+                     <input class="form-control" ng-model="event.date">
+                </td>
+                <td>
+                     <input class="form-control" ng-model="event.month">
+                </td>
+                <td>
+                     <input class="form-control" ng-model="event.month">
+                </td>
+                <td>
+                     <input class="form-control" ng-model="event.name">
+                </td>
+
+                
+                <td>
+                    <button class="btn btn-primary" ng-click="add()">
+                        Add
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-info" ng-click="update()">
+                        Update  
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-info" ng-click="deselect()">
+                        Clear
+                    </button>
+                </td>
+                 
+            </tr>
+            -->
+
+            <!--            <tr ng-repeat="event in todo.data | orderBy: 'date' ">-->
+            <tr ng-repeat="event in todo.data | orderBy:order ">
+                <td>{{event.date | date : format : timezone}}</td>
+                <td>{{event.date | date : 'EEE' }}</td>
+                <td>{{event.date | date : 'MMM'}}</td>
                 <td>{{event.name}}</td>
                 <td>
                     <button class="btn btn-danger" ng-click="remove(event._id)">Remove</button>
