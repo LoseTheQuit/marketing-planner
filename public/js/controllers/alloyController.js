@@ -6,22 +6,10 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
     console.log("INSIDE: alloy Controller");
     $scope.setOrder = function (order) {
-        $scope.order = order;
-        $scope.refresh();
-        console.log('IT IS ONNNN')
-    };
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+        $scope.order = order;
+
+    };
 
     $scope.deselect = function () {
 
@@ -41,25 +29,9 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
         });
 
-
     }
 
     $scope.refresh();
-
-
-    //    $scope.addCustom = function () {
-    //
-    //        console.log($scope.event)
-    //
-    //        alloyService.postHomeBrew($scope.event, function (response) {
-    //
-    //            console.log("_________________________________");
-    //            console.log("postHomeBrew SUCCESS");
-    //            $scope.refresh();
-    //        })
-    //
-    //    }
-
 
     $scope.add = function () {
 
@@ -123,41 +95,18 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
     }
 
 
+    $scope.sortByMonth = function (theMonthInQuestion) {
 
-    /*
-    
-    THIS IS WHERE I START TO MAKE THE MAGIC HAPPEN!
-    
-    */
-
-    //    setInterval(function () {
-    //
-    //        $scope.high = 180;
-    //        $scope.lo = -150;
-    //        $scope.randomLat = Math.floor((Math.random() * $scope.high) + $scope.lo);
-    //        $scope.randomLong = Math.floor((Math.random() * $scope.high) + $scope.lo);
-    //
-    //        $scope.customeventinates = {
-    //            lat: $scope.randomLat,
-    //            long: $scope.randomLong
-    //        }
-    //        console.info('Lat: ' + $scope.randomLat + ' Long: ' + $scope.randomLong);
-    //        $scope.customAdd();
-    //
-    //    }, 10000);
-
-    $scope.customAdd = function () {
-
-        console.log($scope.event)
-
-        alloyService.postHomeBrew($scope.customeventinates, function (response) {
+        alloyService.sortByMonthHomeBrew(theMonthInQuestion, function (response) {
 
             console.log("_________________________________");
-            console.log("postHomeBrew SUCCESS");
-            $scope.refresh();
+            console.log("sortByMonthHomeBrew SUCCESS");
+            console.log(response);
+            $scope.todo = response;
+
         })
 
+        $scope.deselect();
     }
-
 
 });

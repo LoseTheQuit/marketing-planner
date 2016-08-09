@@ -83,8 +83,27 @@ app.get('/outermost', function (req, res) {
     db.todo.find().limit(1).sort({
         _id: -1
     }, function (err, docs) {
-
         console.log(docs);
+        res.json(docs)
+    })
+
+});
+
+app.post('/sort-by-month', function (req, res) {
+
+    let query = req.body.query.toUpperCase();
+
+    console.log(query);
+    console.log('\n');
+    console.log('******* INCOMING sort-by-month GET sort-by-month REQUEST - Load Template *******'.black.bgWhite);
+    console.log('\n');
+
+    db.todo.find({
+        month: query
+            //, month: query  
+    }, function (err, docs) {
+        //  console.log(docs)
+        //  console.log(docs)
         res.json(docs)
     })
 
@@ -111,8 +130,37 @@ app.post('/homebrew', function (req, res) {
     console.log('\n');
     // console.log(req.body); // 
     console.log('\n');
+    console.log('\n' + "THE BODY.ID");
+    console.log(req.body._id);
+    console.log('\n' + "THE BODY.NAME");
+    console.log(req.body.name);
+    console.log('\n' + "THE BODY.DAY");
+    console.log(req.body.day);
+    console.log('\n' + "THE BODY.MONTH");
+    console.log(req.body.month);
+    console.log('\n' + "THE BODY.NAME");
+    console.log(req.body.name);
+    console.log('\n');
 
-    db.todo.insert(req.body, function (err, docs) {
+    var then = new Date(req.body.date);
+    console.log(typeof then);
+
+    console.log(then.getMonth());
+    console.log(then.getDay());
+    console.log(then.getDay());
+    console.log(then.getDay());
+    console.log(then.getDay());
+    console.log(convertThisMonth(then.getMonth()));
+
+    let requestObject = {
+        _id: req.body._id,
+        date: req.body.date,
+        day: 'TEST',
+        month: convertThisMonth(then.getMonth()),
+        name: req.body.name,
+    }
+
+    db.todo.insert(requestObject, function (err, docs) {
 
         console.log(docs)
         res.json(docs)
@@ -205,3 +253,47 @@ app.put('/homebrew/:id', function (req, res) {
     });
 
 });
+
+function convertThisMonth(i) {
+
+
+    switch (i) {
+    case 0:
+        return "JAN"
+        break
+    case 1:
+        return "FEB"
+        break
+    case 2:
+        return "MAR"
+        break
+    case 3:
+        return "APR"
+        break
+    case 4:
+        return "MAY"
+        break
+    case 5:
+        return "JUN"
+        break
+    case 6:
+        return "JUL"
+        break
+    case 7:
+        return "AUG"
+        break
+    case 8:
+        return "SEP"
+        break
+    case 9:
+        return "OCT"
+        break
+    case 10:
+        return "NOV"
+        break
+    case 11:
+        return "DEC"
+        break
+
+    }
+}

@@ -6,3 +6,7 @@
         padding: 0px;
         margin: 0px;
     }
+    
+    .md-button-override {
+        min-width: 35px;
+    }

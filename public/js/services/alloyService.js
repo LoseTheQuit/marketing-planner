@@ -7,7 +7,6 @@ app.service('alloyService', function ($http) {
 
     console.log("INSIDE: alloy Service");
 
-
     this.getHomeBrew = function (callback) {
         console.log("success from getHomeBrew");
 
@@ -39,9 +38,7 @@ app.service('alloyService', function ($http) {
         $http({
             url: '/homebrew/' + id,
             method: "DELETE",
-            data: {
-                test: id
-            }
+
         })
 
         .then(callback);
@@ -62,7 +59,7 @@ app.service('alloyService', function ($http) {
     };
 
     this.updateHomeBrew = function (id, callback) {
-        console.log("success from getSpecificHomeBrew");
+        console.log("success from getSpecificHomeBrew SERVICE");
 
         $http({
             url: '/homebrew/' + id,
@@ -87,4 +84,29 @@ app.service('alloyService', function ($http) {
 
     };
 
+
+    //
+    //   
+    //
+    //   
+    //
+
+    this.sortByMonthHomeBrew = function (param, callback) {
+        console.log("success from sortByMonthHomeBrew");
+
+        console.log(param);
+        console.log(param);
+        console.log(param);
+
+        $http({
+            url: '/sort-by-month',
+            method: "POST",
+            data: {
+                query: param
+            }
+        })
+
+        .then(callback);
+
+    };
 });

@@ -5,44 +5,58 @@
         <!-- <button class="btn btn-primary" ng-click="addCustom()">Custom Add</button> -->
         <!-- <input ng-model="input"> -->
 
+        <md-input-container>
+            <label>SORT BY MONTH</label>
+            <md-select ng-model="event.date">
+                <md-option ng-value="opt" ng-click="sortByMonth('JAN')">JAN</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('FEB')">FEB</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('MAR')">MAR</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('APR')">APR</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('MAY')">MAY</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('JUN')">JUN</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('JUL')">JUL</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('AUG')">AUG</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('SEP')">SEP</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('OCT')">OCT</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('NOV')">NOV</md-option>
+                <md-option ng-value="opt" ng-click="sortByMonth('DEC')">DEC</md-option>
+            </md-select>
+        </md-input-container>
+
     </div>
     <table class="table">
         <thead>
             <tr>
-
                 <th colspan="4">Action</th>
                 <th colspan="4">Action</th>
-
             </tr>
         </thead>
         <thead>
             <tr>
                 <td class="dropDownController">
-                    <!-- <input class="form-control" ng-model="event.date">-->
-                    <md-datepicker ng-model="event.date" md-svg-icon="md-form" md-placeholder="Enter date">asdasd</md-datepicker>
-
+                    <!--                    <md-datepicker ng-model="event.date" md-svg-icon="md-none" md-placeholder="Enter date"></md-datepicker>-->
                 </td>
-                <td colspan=3>
+                <td colspan='3'>
 
                     <input class="form-control" placeholder="Event:" ng-model="event.name">
                 </td>
                 <td>
-                    <button class="btn btn-primary" ng-click="add()">
+                    <md-button class="md-raised md-button-override-R" ng-click="add()">
                         Add
-                    </button>
+                    </md-button>
                 </td>
                 <td>
-                    <button class="btn btn-info" ng-click="update()">
+                    <md-button class="md-raised md-button-override-R" ng-click="update()">
                         Update
-                    </button>
+                    </md-button>
                 </td>
                 <!-- 
-                <td>
+                <td>  
                     <button class="btn btn-info" ng-click="deselect()">
                         Clear
                     </button>
                 </td>
--->
+                -->
             </tr>
         </thead>
 
@@ -50,15 +64,15 @@
         <thead>
             <tr>
                 <th>Date:
-                    <button class="btn btn-primary" ng-click="setOrder('date')">
+                    <md-button class="md-raised md-button-override" ng-click="setOrder('date')">
                         &and;
-                    </button>
-                    <button class="btn btn-primary" ng-click="setOrder('-date')">
+                    </md-button>
+                    <md-button class="md-raised md-button-override" ng-click="setOrder('-date')">
                         &or;
-                    </button>
+                    </md-button>
                 </th>
-                <th>Day: </th>
                 <th>Month: </th>
+                <th>Day: </th>
                 <th>Event: </th>
                 <th colspan="2">Action:</th>
             </tr>
@@ -66,55 +80,20 @@
 
         <tbody>
 
-            <!--
-            <tr>
-                <td>
-                     <input class="form-control" ng-model="event.date">
-                </td>
-                <td>
-                     <input class="form-control" ng-model="event.month">
-                </td>
-                <td>
-                     <input class="form-control" ng-model="event.month">
-                </td>
-                <td>
-                     <input class="form-control" ng-model="event.name">
-                </td>
-
-                
-                <td>
-                    <button class="btn btn-primary" ng-click="add()">
-                        Add
-                    </button>
-                </td>
-                <td>
-                    <button class="btn btn-info" ng-click="update()">
-                        Update  
-                    </button>
-                </td>
-
-                <td>
-                    <button class="btn btn-info" ng-click="deselect()">
-                        Clear
-                    </button>
-                </td>
-                 
-            </tr>
-            -->
-
-            <!--            <tr ng-repeat="event in todo.data | orderBy: 'date' ">-->
             <tr ng-repeat="event in todo.data | orderBy:order ">
                 <td>{{event.date | date : format : timezone}}</td>
-                <td>{{event.date | date : 'EEE' }}</td>
                 <td>{{event.date | date : 'MMM'}}</td>
+                <td>{{event.date | date : 'EEE' }}</td>
+
                 <td>{{event.name}}</td>
                 <td>
-                    <button class="btn btn-danger" ng-click="remove(event._id)">Remove</button>
+                    <md-button class="md-raised md-button-override-R" ng-click="remove(event._id)">Remove</md-button>
                 </td>
                 <td>
-                    <button class="btn btn-warning" ng-click="edit(event._id)">Edit</button>
+                    <md-button class="md-raised md-button-override-R" ng-click="edit(event._id)">Edit</md-button>
                 </td>
             </tr>
+
         </tbody>
     </table>
 </div>
