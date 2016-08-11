@@ -2,6 +2,7 @@
     <div class="col-md-12">
 
         <h1>Monthly Community Event Planner</h1>
+
         <!-- <button class="btn btn-primary" ng-click="addCustom()">Custom Add</button> -->
         <!-- <input ng-model="input"> -->
 
@@ -53,7 +54,7 @@
                 <!-- 
                 <td>  
                     <button class="btn btn-info" ng-click="deselect()">
-                        Clear
+                        Clear  
                     </button>
                 </td>
                 -->
@@ -80,15 +81,16 @@
 
         <tbody>
 
-            <tr ng-repeat="event in todo.data | orderBy:order ">
+            <tr ng-repeat="event in todo.data | orderBy:order" class="listItemContainer">
                 <td>{{event.date | date : format : timezone}}</td>
                 <td>{{event.date | date : 'MMM'}}</td>
                 <td>{{event.date | date : 'EEE' }}</td>
-
                 <td>{{event.name}}</td>
+
                 <td>
                     <md-button class="md-raised md-button-override-R" ng-click="remove(event._id)">Remove</md-button>
                 </td>
+
                 <td>
                     <md-button class="md-raised md-button-override-R" ng-click="edit(event._id)">Edit</md-button>
                 </td>

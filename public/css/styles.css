@@ -1,12 +1,41 @@
-    .md-datepicker {
-        padding-right: 0px;
-    }
-    
-    .dropDownController {
-        padding: 0px;
-        margin: 0px;
-    }
-    
-    .md-button-override {
-        min-width: 35px;
-    }
+.theBody {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow: auto;
+    display: table;
+    /* background: url('http://img15.deviantart.net/177b/i/2014/084/d/8/web_developer_wallpaper__code__by_plusjack-d7bmt54.jpg') no-repeat center; */
+    background: #f0f0f0;
+    background-size: cover;
+    color: #fff;
+    color: #444;
+}
+
+.overlay {
+    /* background: rgba(0, 0, 0, .75); */
+    /* width: 100%; */
+    /* height: 100vh; */
+}
+
+.md-datepicker {
+    padding-right: 0px;
+}
+
+.dropDownController {
+    padding: 0px;
+    margin: 0px;
+}
+
+.md-button-override {
+    min-width: 35px;
+}
+
+.listItemContainer:nth-of-type(odd) {
+    background-color: #c7c7c7;
+    background-color: #d1d1d1;
+}
+
+.listItemContainer:nth-child(even) {
+    background-color: #e1e1e1;
+}

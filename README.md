@@ -1,10 +1,10 @@
-# nthRESTFul
+# marketing-planner
  
-- Alpha 1.0.0
+- Alpha 0.000.182
 
 # Change Log
 
-6/26/2016
+08/09/2016
 
-"first commit"
+"initial commit"
  
