@@ -158,6 +158,7 @@ app.post('/homebrew', function (req, res) {
         day: 'TEST',
         month: convertThisMonth(then.getMonth()),
         name: req.body.name,
+        owner: req.body.owner,
     }
 
     db.todo.insert(requestObject, function (err, docs) {
@@ -232,7 +233,8 @@ app.put('/homebrew/:id', function (req, res) {
     console.log(req.body.month);
     console.log('\n' + "THE BODY.NAME");
     console.log(req.body.name);
-    console.log('\n');
+    console.log('\n' + "THE BODY.OWNER");
+    console.log(req.body.owner);
 
     db.todo.findAndModify({
         query: {
@@ -243,7 +245,8 @@ app.put('/homebrew/:id', function (req, res) {
                 date: req.body.date,
                 day: req.body.day,
                 month: req.body.month,
-                name: req.body.name
+                name: req.body.name,
+                owner: req.body.owner
             }
         },
         new: true

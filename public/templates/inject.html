@@ -37,9 +37,13 @@
                 <td class="dropDownController">
                     <md-datepicker ng-model="event.date" md-svg-icon="md-none" md-placeholder="Enter date"></md-datepicker>
                 </td>
-                <td colspan='3'>
+
+                <td colspan='2'>
 
                     <input class="form-control" placeholder="Event:" ng-model="event.name">
+                </td>
+                <td>
+                    <input class="form-control" placeholder="Owner:" ng-model="event.owner">
                 </td>
                 <td>
                     <md-button class="md-raised md-button-override-R" ng-click="add()">
@@ -72,9 +76,10 @@
                         &or;
                     </md-button>
                 </th>
-                <th>Month: </th>
                 <th>Day: </th>
+
                 <th>Event: </th>
+                <th>Owner: </th>
                 <th colspan="2">Action:</th>
             </tr>
         </thead>
@@ -82,10 +87,11 @@
         <tbody>
             <tr ng-repeat="event in todo.data | orderBy:order" class="listItemContainer">
                 <td>{{event.date | date : format : timezone}}</td>
-                <td>{{event.date | date : 'MMM'}}</td>
-                <td>{{event.date | date : 'EEE' }}</td>
-                <td>{{event.name}}</td>
 
+                <td>{{event.date | date : 'EEE' }}</td>
+
+                <td>{{event.name}}</td>
+                <td>{{event.owner}}</td>
                 <td>
                     <md-button class="md-raised md-button-override-R" ng-click="remove(event._id)">Remove</md-button>
                 </td>

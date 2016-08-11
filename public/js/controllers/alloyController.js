@@ -39,6 +39,10 @@ app.controller('alloyController', function ($scope, $http, alloyService) {
 
         alloyService.postHomeBrew($scope.event, function (response) {
 
+            console.log($scope.event);
+            console.log($scope.event);
+            console.log($scope.event);
+            console.log($scope.event);
             console.log("_________________________________");
             console.log("postHomeBrew SUCCESS");
             $scope.refresh();
