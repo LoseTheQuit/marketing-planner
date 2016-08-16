@@ -1,6 +1,14 @@
 <div class="container-fluid">
     <div class="col-md-12">
 
+        <ul class="gallery gallery1">
+            <li ng-repeat="image in images">
+                <a ng-click="openLightboxModal($index)">
+                    <img ng-src="{{image.thumbUrl}}" class="img-thumbnail">
+                </a>
+            </li>
+        </ul>
+
         <h1>Monthly Community Event Planner</h1>
 
         <!-- <button class="btn btn-primary" ng-click="addCustom()">Custom Add</button> -->
